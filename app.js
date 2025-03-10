@@ -162,7 +162,7 @@ app.get('/stream/:videoId/:formatType/*', (req, res) => {
   const filePath = req.path.split(`/stream/${videoId}/${formatType}/`)[1];
   
   const directory = path.join(OUTPUT_FOLDER, videoId, formatType);
-  res.sendFile(path.join(directory, filePath));
+  res.sendFile(path.resolve(directory, filePath));
 });
 
 app.get('/player/:videoId', (req, res) => {
